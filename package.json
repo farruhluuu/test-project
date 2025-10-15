@@ -1,0 +1,32 @@
+{
+  "name": "test-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn ./src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/colors": "^1.2.4",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.2",
+    "morgan": "^1.10.1",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.17.1",
+    "argon2": "^0.44.0",
+    "colors": "^1.4.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-route-list": "^1.0.23",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^6.17.1",
+    "ts-node-dev": "^2.0.0",
+    "zod": "^4.1.12"
+  }
+}
