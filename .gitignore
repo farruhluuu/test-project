@@ -8,3 +8,8 @@ out/
 
 # Environment variables
 .env
+/src/generated/prisma
+
+
+# prisma 
+/prisma/migrations

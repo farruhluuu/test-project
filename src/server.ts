@@ -1,24 +1,29 @@
 import express from "express";
-import dotenv from "dotenv"
+import { prisma } from "./db/prisma";
 import 'colors'
-import { configure } from "express-route-list";
+
+import { config } from "./config/config";
+import AuthRouter from "./auth/auth.routes"
 
 const app = express();
 
-dotenv.config()
-
 async function main() {
+  await prisma.$connect()
   app.use(express.json())
 
-  const PORT = process.env.PORT || 3000
+  app.use('/api', AuthRouter)
 
   app.listen(
-    PORT,
+    config.port,
     () => {
-      console.log(`Server running at http://localhost:${PORT}`.green.bold);
-      configure(app)
+      console.log(`Server running at http://localhost:${config.port}`.green.bold);
     }
   );
 }
 
 main()
+  .catch(async (error) => {
+    console.log(error)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
